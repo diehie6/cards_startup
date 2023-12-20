@@ -40,7 +40,11 @@ dependencies:
 
   persistent_bottom_nav_bar: ^5.0.2
 
+  carousel_slider: ^4.2.1
+
   http: ^1.1.0
+
+  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -65,9 +69,20 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/1.png
+    - assets/2.png
+    - assets/3.png
+    - assets/arrow_left_long.png
+    - assets/eye.png
+    - assets/Mail.png
+    - assets/Lock.png
+    - assets/Profile.png
+    - assets/logo.jpeg
+    - assets/edit.png
+    - assets/googleLogo.png
+    - assets/fi_menu.png
+    - assets/Avatar 1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

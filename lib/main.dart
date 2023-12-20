@@ -1,7 +1,8 @@
-import 'dart:io';
-import 'package:cards_startup/presentation/home_page.dart';
+import 'package:cards_startup/presentation/add_question/add_question_page.dart';
+import 'package:cards_startup/presentation/authorization/signin_page.dart';
+import 'package:cards_startup/presentation/authorization/signup_page.dart';
+import 'package:cards_startup/presentation/landing/landing_page.dart';
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
@@ -31,62 +32,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: NavBar(),
-    );
-  }
-}
-
-class NavBar extends StatefulWidget {
-  @override
-  _NavBarState createState() => _NavBarState();
-}
-
-class _NavBarState extends State<NavBar> {
-  int _currentIndex = 0;
-
-  final List<Widget> _screens = [
-    HomePage(),
-    HomePage(), // Replace these with your actual screens
-    HomePage(),
-    HomePage(),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,
-        backgroundColor: Colors.white, // Background color
-        selectedItemColor: Colors.blue, // Active item color
-        unselectedItemColor: Color(0xFF8A929A), // Inactive item color
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 32.sp),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history, size: 32.sp),
-            label: 'History',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart, size: 32.sp),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message, size: 32.sp),
-            label: 'Messages',
-          ),
-        ],
-      ),
+      child: AddQPage(),
     );
   }
 }
