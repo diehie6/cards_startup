@@ -1,3 +1,4 @@
+import 'package:cards_startup/presentation/add_question/confirmation_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -259,24 +260,29 @@ class _AddQPageState extends State<AddQPage> {
                         ),
                       ),
                       SizedBox(height: 20.h,),
-                      Center(
-                        child: Container(
-                          width: 251.w,
-                          height: 68.h,
-                          alignment: Alignment.center,
-                          decoration: ShapeDecoration(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(19),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ConfirmPage()));
+                        },
+                        child: Center(
+                          child: Container(
+                            width: 251.w,
+                            height: 68.h,
+                            alignment: Alignment.center,
+                            decoration: ShapeDecoration(
+                              color: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(19),
+                              ),
                             ),
-                          ),
-                          child: Text(
-                            'Опубликовать',
-                            style: TextStyle(
-                              color: Color(0xFF524C8F),
-                              fontSize: 25.49.sp,
-                              fontFamily: 'Lato',
-                              fontWeight: FontWeight.w600,
+                            child: Text(
+                              'Опубликовать',
+                              style: TextStyle(
+                                color: Color(0xFF524C8F),
+                                fontSize: 25.49.sp,
+                                fontFamily: 'Lato',
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ),

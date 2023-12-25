@@ -1,7 +1,9 @@
 import 'package:cards_startup/presentation/add_question/add_question_page.dart';
+import 'package:cards_startup/presentation/add_question/confirmation_page.dart';
 import 'package:cards_startup/presentation/authorization/signin_page.dart';
 import 'package:cards_startup/presentation/authorization/signup_page.dart';
 import 'package:cards_startup/presentation/landing/landing_page.dart';
+import 'package:cards_startup/presentation/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: AddQPage(),
+      child: ProfilePage(),
     );
   }
 }
