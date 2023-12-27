@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: ProfilePage(),
+      child: AddQPage(),
     );
   }
 }

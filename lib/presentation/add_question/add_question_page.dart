@@ -17,6 +17,7 @@ class _AddQPageState extends State<AddQPage> {
   String selectedCategory = 'Категория';
   OverlayEntry? _overlayEntry;
   String? selectedLabel;
+  bool _isMenuOpen = false;
 
   void showDropdown() {
     if (_overlayEntry != null) {
@@ -101,6 +102,12 @@ class _AddQPageState extends State<AddQPage> {
     );
   }
 
+  void _togglePopupMenu() {
+    setState(() {
+      _isMenuOpen = !_isMenuOpen;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,7 +123,60 @@ class _AddQPageState extends State<AddQPage> {
                   padding: const EdgeInsets.only(top: 60, left: 16, right: 16),
                   child: Row(
                     children: [
-                      Image.asset("assets/fi_menu.png"),
+                      PopupMenuButton<String>(
+                        onSelected: (String value) {
+                          _togglePopupMenu(); // Close the popup menu
+                          // Handle your menu tap here
+                        },
+                        onCanceled: _togglePopupMenu, // Close the popup menu
+                        itemBuilder: (BuildContext context) {
+                          _togglePopupMenu(); // Open the popup menu
+                          return <PopupMenuEntry<String>>[
+                            PopupMenuItem<String>(
+                              value: 'support',
+                              child: Text(
+                                'support',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14.25.sp,
+                                  fontFamily: 'Lato',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            const PopupMenuDivider(),
+                            PopupMenuItem<String>(
+                              value: 'language',
+                              child: Text(
+                                'language',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14.25.sp,
+                                  fontFamily: 'Lato',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            const PopupMenuDivider(),
+                            PopupMenuItem<String>(
+                              value: 'notifications',
+                              child: Text(
+                                'notifications',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14.25.sp,
+                                  fontFamily: 'Lato',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                          ];
+                        },
+                        child: Image.asset("assets/fi_menu.png"),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ),
+                      ),
                       Spacer(),
                       Text(
                         'Все темы',
@@ -290,7 +350,16 @@ class _AddQPageState extends State<AddQPage> {
                     ],
                   ),
                 ),
-            )
+            ),
+            if (_isMenuOpen)
+              Positioned.fill(
+                child: GestureDetector(
+                  onTap: _togglePopupMenu, // Close the popup menu
+                  child: Container(
+                    color: Colors.black.withOpacity(0.5), // Adjust the opacity as needed
+                  ),
+                ),
+              ),
           ],
         ),
       ),
