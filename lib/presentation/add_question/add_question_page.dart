@@ -125,10 +125,10 @@ class _AddQPageState extends State<AddQPage> {
                     children: [
                       PopupMenuButton<String>(
                         onSelected: (String value) {
-                          _togglePopupMenu(); // Close the popup menu
+                          _togglePopupMenu();
                           // Handle your menu tap here
                         },
-                        onCanceled: _togglePopupMenu, // Close the popup menu
+                        onCanceled: _togglePopupMenu,
                         itemBuilder: (BuildContext context) {
                           _togglePopupMenu(); // Open the popup menu
                           return <PopupMenuEntry<String>>[
@@ -354,9 +354,9 @@ class _AddQPageState extends State<AddQPage> {
             if (_isMenuOpen)
               Positioned.fill(
                 child: GestureDetector(
-                  onTap: _togglePopupMenu, // Close the popup menu
+                  onTap: _togglePopupMenu,
                   child: Container(
-                    color: Colors.black.withOpacity(0.5), // Adjust the opacity as needed
+                    color: Colors.black.withOpacity(0.5),
                   ),
                 ),
               ),
